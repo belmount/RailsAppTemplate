@@ -1,0 +1,17 @@
+.row
+  .span3.offset1
+    = link_to "Texam", root_path, :class=>'brand'
+  .span7.offset1
+    %ul.nav
+      %li 
+        = link_to "Home"
+      %li
+        = link_to :Post
+      - if user_signed_in? 
+        %li 
+          = link_to current_user.name, new_user_password_path(current_user)
+        %li
+          = link_to :logout, destroy_user_session_path
+      - else 
+        %li
+          = link_to :login, new_user_session_path

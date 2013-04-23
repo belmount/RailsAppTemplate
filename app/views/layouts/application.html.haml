@@ -1,0 +1,16 @@
+!!!
+%head
+  %title rails app template
+  = stylesheet_link_tag "application", :meida=>"all"
+  = javascript_include_tag "application"
+  = csrf_meta_tag
+%body
+  %header.navbar.navbar-fixed-top
+    %container
+      =render 'layouts/nav'
+  - if flash[:alert].present? 
+    .alert.alert-error
+      = flash[:alert]
+  #main.content
+    .row.span12
+      = yield
